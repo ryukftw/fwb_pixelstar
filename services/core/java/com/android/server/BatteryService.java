@@ -737,6 +737,7 @@ public final class BatteryService extends SystemService {
             mLastOemFastCharger = mOemFastCharger;
             mLastBatteryFullCharge = mHealthInfo.batteryFullChargeUah;
             mLastBatteryFullChargeDesign = mHealthInfo.batteryFullChargeDesignCapacityUah;
+            mLastOemFastCharger = mOemFastCharger;
         }
     }
 
@@ -773,6 +774,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_OEM_FAST_CHARGER, mOemFastCharger);
         intent.putExtra(BatteryManager.EXTRA_MAXIMUM_CAPACITY, mHealthInfo.batteryFullChargeUah);
         intent.putExtra(BatteryManager.EXTRA_DESIGN_CAPACITY, mHealthInfo.batteryFullChargeDesignCapacityUah);
+        intent.putExtra(BatteryManager.EXTRA_OEM_FAST_CHARGER, mOemFastCharger);
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString()

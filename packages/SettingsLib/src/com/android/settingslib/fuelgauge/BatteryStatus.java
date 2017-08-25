@@ -73,8 +73,7 @@ public class BatteryStatus {
     }
 
     public BatteryStatus(int status, int level, int plugged, int chargingStatus,
-            int maxChargingWattage, boolean oemFastChargeStatus, boolean present, int maxChargingCurrent, int maxChargingVoltage,
-            float temperature) {
+            int maxChargingWattage, boolean oemFastChargeStatus, boolean present) {
         this.status = status;
         this.level = level;
         this.plugged = plugged;
@@ -103,6 +102,7 @@ public class BatteryStatus {
         level = getBatteryLevel(batteryChangedIntent);
         chargingStatus = batteryChangedIntent.getIntExtra(EXTRA_CHARGING_STATUS,
                 CHARGING_POLICY_DEFAULT);
+        oemFastChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_OEM_FAST_CHARGER, false);
         present = batteryChangedIntent.getBooleanExtra(EXTRA_PRESENT, true);
         oemFastChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_OEM_FAST_CHARGER, false);
         temperature = batteryChangedIntent.getIntExtra(EXTRA_TEMPERATURE, -1);
